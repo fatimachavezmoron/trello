@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
+import Link from "next/link";
 
 export const Navbar = () => {
   return (
@@ -7,8 +8,12 @@ export const Navbar = () => {
       <div className="md:max-w-screen-2xl mx-auto flex items-center w-full justify-between">
         <Logo />
         <div className="space-x-4 md:block md:w-auto flex items-center justify-between w-full">
-          <Button>Login</Button>
-          <Button>Get Taskify for free</Button>
+          <Button className="font-poppins" size="sm" variant="outline" asChild>
+            <Link href="/sign-in">Login</Link>
+          </Button>
+          <Button className="font-poppins" size="sm" asChild>
+            <Link href="/sign-up">Get Taskify for free</Link>
+          </Button>
         </div>
       </div>
     </div>
