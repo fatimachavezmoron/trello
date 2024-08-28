@@ -17,8 +17,8 @@ const MarketingPage = () => {
           Taskify helps team move
         </h1>
         <div
-          className="text-3xl md:text-6xl bg-gradient-to-r from-fuchsia-600 to-pink-600
-         text-white px-4 p-2 rounded-md pb-4 w-fit font-poppins"
+          className="text-3xl md:text-6xl bg-gradient-to-r from-lime-400 to-cyan-500
+         text-white px-4 p-2 rounded-md pb-4 w-fit font-poppins font-semibold"
         >
           work foward
         </div>

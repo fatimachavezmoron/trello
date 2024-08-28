@@ -1,0 +1,13 @@
+<svg width="524" height="524" viewBox="0 0 524 524" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="262" cy="131" r="131" fill="#00CCCC"/>
+<circle cx="393" cy="262" r="131" transform="rotate(-90 393 262)" fill="#53FFEE"/>
+<circle cx="262" cy="393" r="131" fill="#3DFF74"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M262 262C334.349 262 393 320.651 393 393C320.651 393 262 334.349 262 262Z" fill="#48FFB1"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M393 131C393 203.349 334.349 262 262 262C262 189.651 320.651 131 393 131Z" fill="#29E5DD"/>
+<circle cx="262" cy="131" r="128.5" stroke="#0E584A" stroke-width="5"/>
+<circle cx="131" cy="262" r="131" transform="rotate(-90 131 262)" fill="#BCFFB1"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M262 262C262 334.349 203.349 393 131 393C131 320.651 189.651 262 262 262Z" fill="#7CFF92"/>
+<circle cx="393" cy="262" r="128.5" transform="rotate(-90 393 262)" stroke="#0E584A" stroke-width="5"/>
+<circle cx="262" cy="393" r="128.5" stroke="#0E584A" stroke-width="5"/>
+<circle cx="131" cy="262" r="128.5" transform="rotate(-90 131 262)" stroke="#0E584A" stroke-width="5"/>
+</svg>
