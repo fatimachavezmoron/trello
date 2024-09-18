@@ -1,4 +1,5 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
 
 export const config = {
   matcher: [
@@ -9,10 +10,39 @@ export const config = {
   ],
 };
 
+// Define public routes
 const isPublicRoute = createRouteMatcher(["/sign-in(.*)", "/sign-up(.*)", "/"]);
 
 export default clerkMiddleware((auth, request) => {
+  const signInUrl = new URL("/sign-in", request.url); // Modify this URL as per your sign-in route
+
   if (!isPublicRoute(request)) {
     auth().protect();
+  }
+
+  if (auth().userId && isPublicRoute(request)) {
+    let path = "/select-org";
+
+    if (auth().orgId) {
+      path = `/organization/${auth().orgId}`;
+    }
+
+    const orgSelection = new URL(path, request.url);
+    return NextResponse.redirect(orgSelection);
+  }
+
+  if (!auth().userId && !isPublicRoute(request)) {
+    // Use NextResponse.redirect for server-side redirects
+    signInUrl.searchParams.set("returnUrl", request.url); // Optionally set a return URL
+    return NextResponse.redirect(signInUrl);
+  }
+
+  if (
+    auth().userId &&
+    !auth().orgId &&
+    request.nextUrl.pathname !== "/select-org"
+  ) {
+    const orgSelection = new URL("/select-org", request.url);
+    return NextResponse.redirect(orgSelection);
   }
 });
