@@ -66,22 +66,22 @@ const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
             <Plus className="h-4 w-4" />
           </Link>
         </Button>
-        <Accordion
-          type="multiple"
-          defaultValue={defaultAccordionValue}
-          className="space-y-2"
-        >
-          {userMemberships.data.map(({ organization }) => (
-            <NavItem
-              key={organization.id}
-              isActive={activeOrganization?.id === organization.id}
-              isExpanded={expanded[organization.id]}
-              organization={organization as Organization}
-              onExpand={onExpand}
-            />
-          ))}
-        </Accordion>
       </div>
+      <Accordion
+        type="multiple"
+        defaultValue={defaultAccordionValue}
+        className="space-y-2"
+      >
+        {userMemberships.data.map(({ organization }) => (
+          <NavItem
+            key={organization.id}
+            isActive={activeOrganization?.id === organization.id}
+            isExpanded={expanded[organization.id]}
+            organization={organization as Organization}
+            onExpand={onExpand}
+          />
+        ))}
+      </Accordion>
     </>
   );
 };
