@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^5.3.7",
+    "@radix-ui/react-accordion": "^1.2.0",
+    "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "accordion": "^3.0.2",
+    "add": "^2.0.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.418.0",
@@ -18,8 +22,11 @@
     "node": "^18.17.0",
     "react": "^18",
     "react-dom": "^18",
+    "shadcn-ui": "^0.9.1",
+    "skeleton": "^0.1.2",
     "tailwind-merge": "^2.4.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "usehooks-ts": "^3.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",
