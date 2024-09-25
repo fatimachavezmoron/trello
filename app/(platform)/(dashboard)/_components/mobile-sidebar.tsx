@@ -14,7 +14,7 @@ export const MobileSidebar = () => {
 
   const onOpen = useMobileSidebar((state) => state.onOpen);
   const onClose = useMobileSidebar((state) => state.onClose);
-  const inOpen = useMobileSidebar((state) => state.isOpen);
+  const isOpen = useMobileSidebar((state) => state.isOpen);
 
   useEffect(() => {
     setIsMounted(true);
@@ -32,15 +32,15 @@ export const MobileSidebar = () => {
     <>
       <Button
         onClick={onOpen}
-        className="block md:hidden"
+        className="block md:hidden mr-2"
         variant="ghost"
         size="sm"
       >
         <Menu className="h-4 w-4" />
       </Button>
-      <Sheet>
-        <SheetContent>
-          <Sidebar />
+      <Sheet open={isOpen} onOpenChange={onClose}>
+        <SheetContent side="left" className="p-2 pt-10">
+          <Sidebar storageKey="t-sidebar-mobile-state" />
         </SheetContent>
       </Sheet>
     </>
