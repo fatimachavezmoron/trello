@@ -1,4 +1,5 @@
 "use server";
+import { revalidatePath } from "next/cache";
 import { db } from "../lib/db";
 import { z } from "zod";
 
@@ -16,4 +17,6 @@ export async function create(formData: FormData) {
       title,
     },
   });
+
+  revalidatePath("/organization/org_2mLgru7urTuoVfkAgdRPdRNeBQB");
 }
