@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
 import React from "react";
+import { Button } from "@/components/ui/button";
 import { deleteBoard } from "@/actions/delete-board";
 
 interface BoardProps {
