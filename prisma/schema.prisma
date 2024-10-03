@@ -16,15 +16,6 @@ datasource db {
 model Board {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
   title String
-  userId String @db.ObjectId
-  user User @relation(fields: [userId], references: [id])
 }
 
-model User {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  name String
-  email String
-  hashedPassword  String?
-  title String
-  boards Board[]  // Relación con el modelo Board
-}
+
