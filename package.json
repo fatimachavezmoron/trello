@@ -22,6 +22,7 @@
     "add": "^2.0.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.418.0",
     "next": "14.2.5",
     "node": "^18.17.0",
@@ -38,6 +39,7 @@
     "zustand": "^5.0.0-rc.2"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.10",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
