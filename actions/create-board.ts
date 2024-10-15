@@ -36,6 +36,12 @@ export async function create(prevState: State, formData: FormData) {
     await db.board.create({
       data: {
         title,
+        orgId: "someOrgId",
+        imageId: "someImageId",
+        imageThumUrl: "someThumbnailUrl",
+        imageFullUrl: "someFullImageUrl",
+        imageUserName: "username",
+        imageLinkHTML: "<a href='someUrl'>link</a>",
       },
     });
   } catch (error) {
