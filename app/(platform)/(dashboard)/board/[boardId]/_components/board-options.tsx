@@ -7,7 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { MoreHorizontal } from "lucide-react";
+import { MoreHorizontal, X } from "lucide-react";
 
 interface BoardOptionsProps {
   id: string;
@@ -25,6 +25,21 @@ export const BoardOptions = ({ id }: BoardOptionsProps) => {
         <div className="text-sm font-medium text-center text-neutral-600">
           Board Action
         </div>
+        <PopoverClose asChild>
+          <Button
+            className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600"
+            variant="ghost"
+          >
+            <X className="h-4 w-4" />
+          </Button>
+        </PopoverClose>
+        <Button
+          variant="ghost"
+          onClick={() => {}}
+          className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
+        >
+          Delete this board
+        </Button>
       </PopoverContent>
     </Popover>
   );
