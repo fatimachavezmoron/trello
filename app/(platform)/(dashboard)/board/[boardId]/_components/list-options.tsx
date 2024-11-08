@@ -10,6 +10,9 @@ import { Button } from "@/components/ui/button";
 import { MoreHorizontal, X } from "lucide-react";
 import { FormSubmit } from "@/components/ui/form/form-submit";
 import { Separator } from "@/components/ui/separator";
+import { useAction } from "@/hooks/use-action";
+import { deleteList } from "@/actions/delete-list";
+import { toast } from "sonner";
 
 interface ListOptionsProps {
   data: List;
@@ -17,6 +20,21 @@ interface ListOptionsProps {
 }
 
 export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
+  const { execute: executeDelete } = useAction(deleteList, {
+    onSuccess: (data) => {
+      toast.success(`List "${data.title}" deleted`);
+    },
+    onError: (error) => {
+      toast.error(error);
+    },
+  });
+
+  const onDelete = (formData: FormData) => {
+    const id = formData.get("id") as string;
+    const boardId = formData.get("boardId") as string;
+    executeDelete({ id, boardId });
+  };
+
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -47,7 +65,7 @@ export const ListOptions = ({ data, onAddCard }: ListOptionsProps) => {
         >
           Add Card...
         </Button>
-        <form>
+        <form action={onDelete}>
           <input hidden name="id" id="id" value={data.id} />
           <input hidden name="boardId" id="boardId" value={data.boardId} />
           <FormSubmit
