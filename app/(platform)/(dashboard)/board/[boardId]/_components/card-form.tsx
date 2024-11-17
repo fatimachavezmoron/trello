@@ -1,8 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { FormSubmit } from "@/components/ui/form/form-submit";
 import { FormTextarea } from "@/components/ui/form/form-textarea";
-import { Plus } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import { forwardRef } from "react";
 
 interface CardFormProps {
@@ -23,6 +24,13 @@ export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
             ref={ref}
             placeholder="Enter a title for this card..."
           />
+          <input hidden id="listId" name="listId" value={listId} />
+          <div className="flex items-center gap-x-1">
+            <FormSubmit>Add Card</FormSubmit>
+            <Button onClick={disableEditing} size="sm" variant="ghost">
+              <X />
+            </Button>
+          </div>
         </form>
       );
     }
