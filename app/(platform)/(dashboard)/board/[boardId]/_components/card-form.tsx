@@ -4,7 +4,10 @@ import { Button } from "@/components/ui/button";
 import { FormSubmit } from "@/components/ui/form/form-submit";
 import { FormTextarea } from "@/components/ui/form/form-textarea";
 import { Plus, X } from "lucide-react";
-import { forwardRef } from "react";
+import { forwardRef, useRef, ElementRef, KeyboardEventHandler } from "react";
+import { useAction } from "@/hooks/use-action";
+import { createCard } from "@/actions/create-card";
+import { useParams } from "next/navigation";
 
 interface CardFormProps {
   listId: string;
@@ -15,6 +18,10 @@ interface CardFormProps {
 
 export const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
   ({ listId, enableEditing, disableEditing, isEditing }, ref) => {
+    const params = useParams();
+    const formRef = useRef<ElementRef<"form">>(null);
+
+    const { execute, fieldErrors } = useAction(createCard);
     if (isEditing) {
       return (
         <form className="m-1 py-0.5 px-1 space-y-4">
