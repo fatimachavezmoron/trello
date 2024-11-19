@@ -51,6 +51,17 @@ export const ListContainer = ({ data, boardId }: ListCointainerProps) => {
 
       setOrderedData(items);
     }
+
+    // user moves a card
+    if (type === "card") {
+      let newOrderedData = [...orderedData];
+      const sourceList = newOrderedData.find(
+        (list) => list.id === source.droppableId
+      );
+      const destList = newOrderedData.find(
+        (list) => list.id === destination.droppableId
+      );
+    }
   };
 
   return (
