@@ -7,6 +7,7 @@ import { ListItem } from "./list-item";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import { useAction } from "@/hooks/use-action";
 import { updateListOrder } from "@/actions/update-list-order";
+import { updateCardOrder } from "@/actions/update-card-order";
 import { toast } from "sonner";
 
 interface ListCointainerProps {
@@ -28,6 +29,15 @@ export const ListContainer = ({ data, boardId }: ListCointainerProps) => {
   const { execute: executeUpdateListOrder } = useAction(updateListOrder, {
     onSuccess: () => {
       toast.success("List reordered");
+    },
+    onError: (error) => {
+      toast.error(error);
+    },
+  });
+
+  const { execute: executeupdateCardOrder } = useAction(updateCardOrder, {
+    onSuccess: () => {
+      toast.success("Card reordered");
     },
     onError: (error) => {
       toast.error(error);
@@ -104,6 +114,10 @@ export const ListContainer = ({ data, boardId }: ListCointainerProps) => {
         sourceList.cards = reorderCards;
 
         setOrderedData(newOrderedData);
+        executeupdateCardOrder({
+          boardId: boardId,
+          items: reorderCards,
+        });
         // user moves card to another list
       } else {
         // remove card from the source list
