@@ -61,6 +61,37 @@ export const ListContainer = ({ data, boardId }: ListCointainerProps) => {
       const destList = newOrderedData.find(
         (list) => list.id === destination.droppableId
       );
+
+      if (!sourceList || !destList) {
+        return;
+      }
+
+      // Check if cards exists on the sourceList
+      if (!sourceList.cards) {
+        sourceList.cards = [];
+      }
+
+      // Check if cards exists on the destList
+      if (!destList.cards) {
+        destList.cards = [];
+      }
+
+      // Moving the card in the same list
+
+      if (source.droppableId === destination.droppableId) {
+        const reorderCards = reorder(
+          sourceList.cards,
+          source.index,
+          destination.index
+        );
+
+        reorderCards.forEach((card, idx) => {
+          card.order = idx;
+        });
+        sourceList.cards = reorderCards;
+
+        setOrderedData(newOrderedData);
+      }
     }
   };
 
