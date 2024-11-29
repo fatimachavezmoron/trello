@@ -137,6 +137,10 @@ export const ListContainer = ({ data, boardId }: ListCointainerProps) => {
           card.order = idx;
         });
         setOrderedData(newOrderedData);
+        executeupdateCardOrder({
+          boardId: boardId,
+          items: destList.cards,
+        });
       }
     }
   };

@@ -7,7 +7,6 @@ import { useOrganization, useOrganizationList } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Accordion } from "@/components/ui/accordion";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Separator } from "@/components/ui/separator";
 import NavItem, { Organization } from "./nav-item";
 
 interface SidebarProps {
